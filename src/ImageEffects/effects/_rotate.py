@@ -1,12 +1,10 @@
 # imports
 from PIL import Image
-from PIL import ImageFilter
 
 
-class _blur:
+class _rotate:
     '''Static class'''
     @staticmethod
     def renderimage(image: str, radius: int = 1) -> Image:
-        im = Image.open(image)
-        im = im.filter(ImageFilter.BoxBlur(radius))
+        im = Image.open(image).rotate(radius)
         return im
