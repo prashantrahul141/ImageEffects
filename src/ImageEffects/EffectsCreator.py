@@ -1,4 +1,4 @@
-from .effects import _blur, _rotate, _ascify
+from .effects import _blur, _rotate, _ascify, _caption1
 from PIL import Image
 
 
@@ -14,3 +14,6 @@ class EffectsCreator:
 
     def asicfy(self, text: str = 'ascify') -> str:
         return _ascify._ascify.renderimage(text)
+
+    def caption1(self, image: str, text: str = 'text here') -> Image:
+        return _caption1._caption1.renderimage(image, text)
