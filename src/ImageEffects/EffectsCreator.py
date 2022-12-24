@@ -1,4 +1,4 @@
-from .effects import _blur, _rotate, _ascify, _caption1
+from .effects import _blur, _rotate, _ascify, _caption1, _caption2
 from PIL import Image
 
 
@@ -17,3 +17,6 @@ class EffectsCreator:
 
     def caption1(self, image: str, text: str = 'text here') -> Image:
         return _caption1._caption1.renderimage(image, text)
+
+    def caption2(self, image: str, text: str = 'text here') -> Image:
+        return _caption2._caption2.renderimage(image, text)
