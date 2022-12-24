@@ -1,4 +1,4 @@
-from .effects import _blur, _rotate, _ascify, _caption1, _caption2
+from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop
 from PIL import Image
 
 
@@ -25,3 +25,7 @@ class EffectsCreator:
     def caption2(self, image: str, text: str = 'text here') -> Image:
         '''adds given text to the image on the bottom side'''
         return _caption2._caption2.renderimage(image, text)
+
+    def crop(self, image: str) -> Image:
+        '''crops image automactically'''
+        return _crop._crop.renderimage(image)
