@@ -22,7 +22,8 @@ class _deepfry:
         _converter_saturation = ImageEnhance.Color(im)
         im = _converter_saturation.enhance(cls.SATURATION_ENHANCE_SCALE)
 
-        # increasing red band's saturation.
+        # increasing red band's saturation
+        # and decreasing blue band's saturation to increase yellow's
         r, g, b = im.split()
         r = r.point(lambda i: i * cls.RED_BAND_INCREASE_RATIO)
         b = b.point(lambda i: i * cls.BLUE_BAND_INCREASE_RATIO)
