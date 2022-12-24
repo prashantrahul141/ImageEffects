@@ -7,7 +7,6 @@ class _resize:
     @classmethod
     def renderimage(cls, image: str, width: int = None, height: int = None) -> Image:
         im = Image.open(image)
-
         im = im.resize(cls.getSize(im, width, height))
         return im
 
