@@ -7,8 +7,8 @@ from ImageEffects.constants import FONTS_DIR
 class _caption1:
     '''Static class'''
     TEXT_COLOR = (255, 255, 255)
-    FONT_SIZE_RATIO = 9/100  # 10%
-    LINE_LENGTH = int((FONT_SIZE_RATIO * 100) * 1.5)
+    FONT_SIZE_RATIO = 10/100  # 10%
+    LINE_LENGTH = int(FONT_SIZE_RATIO * 100)
 
     @classmethod
     def renderimage(cls, image: str, text: str = 'text here') -> Image:
@@ -18,7 +18,8 @@ class _caption1:
         im = Image.open(image)
         IMPACT_FONT = ImageFont.truetype(os.path.join(FONTS_DIR, 'impact.ttf'), int(cls.FONT_SIZE_RATIO * im.width))
         editable_im = ImageDraw.Draw(im)
-        editable_im.text((0, 0), cls.format_text(text), cls.TEXT_COLOR, font=IMPACT_FONT)
+        X_DISTANCE = im.width - (85/100 * im.width)
+        editable_im.text((X_DISTANCE, 5), cls.format_text(text), cls.TEXT_COLOR, font=IMPACT_FONT)
 
         return im
 
@@ -30,15 +31,22 @@ class _caption1:
             _text = ''
             _temp_length = 0
             _temp_str = ''
+            _last_index = 0
 
-            for i in text.split(' '):
-                _temp_length += len(i)
-                _temp_str += i + ' '
+            for _index, _each_string in enumerate(text.split(' ')):
+                _temp_length += len(_each_string)
+                _temp_str += ' ' + _each_string
+                _last_index = _index
+                print(_last_index)
 
                 if _temp_length > cls.LINE_LENGTH:
                     _text += _temp_str + '\n'
                     _temp_str = ''
                     _temp_length = 0
+
+            # adding left over strings
+            for _each_string in text.split(' ')[_last_index - 1:]:
+                _text += ' ' + _each_string
 
             return _text
 
