@@ -1,4 +1,5 @@
 from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle, _pixelate, _saturate
+from .effects import _deepfry
 from PIL import Image
 
 
@@ -45,3 +46,7 @@ class EffectsCreator:
     def saturate(self, image: str, scale: int = 0) -> Image:
         '''changes saturation of image'''
         return _saturate._saturate.renderimage(image, scale)
+
+    def deepfry(self, image: str) -> Image:
+        '''makes deepfry meme from image'''
+        return _deepfry._deepfry.renderimage(image)
