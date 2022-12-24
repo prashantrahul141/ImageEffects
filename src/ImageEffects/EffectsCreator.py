@@ -66,3 +66,7 @@ class EffectsCreator:
     def invert(self, image: str) -> Image:
         '''inverts the colors of an image'''
         return _invert._invert.renderimage(image)
+
+    def emojioverlay(self, image: str, emoji: str) -> None:
+        '''Overlays an image with an emoji'''
+        pass
