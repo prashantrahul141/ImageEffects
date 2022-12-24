@@ -1,4 +1,4 @@
-from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle, _pixelate
+from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle, _pixelate, _saturate
 from PIL import Image
 
 
@@ -41,3 +41,7 @@ class EffectsCreator:
     def pixelate(self, image: str, scale: int = 0) -> Image:
         '''adds pixelate effect'''
         return _pixelate._pixelate.renderimage(image, scale)
+
+    def saturate(self, image: str, scale: int = 0) -> Image:
+        '''changes saturation of image'''
+        return _saturate._saturate.renderimage(image, scale)
