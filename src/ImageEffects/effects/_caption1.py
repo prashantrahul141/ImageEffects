@@ -37,7 +37,6 @@ class _caption1:
                 _temp_length += len(_each_string)
                 _temp_str += ' ' + _each_string
                 _last_index = _index
-                print(_last_index)
 
                 if _temp_length > cls.LINE_LENGTH:
                     _text += _temp_str + '\n'
