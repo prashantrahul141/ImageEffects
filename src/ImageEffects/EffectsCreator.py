@@ -28,7 +28,7 @@ class EffectsCreator:
         return _caption2._caption2.renderimage(image, text)
 
     def crop(self, image: str) -> Image:
-        '''crops image automactically'''
+        '''crops image automactically in 1:1 ratio'''
         return _crop._crop.renderimage(image)
 
     def cropcircle(self, image: str) -> Image:
