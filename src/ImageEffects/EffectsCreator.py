@@ -1,4 +1,4 @@
-from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize
+from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle
 from PIL import Image
 
 
@@ -29,6 +29,10 @@ class EffectsCreator:
     def crop(self, image: str) -> Image:
         '''crops image automactically'''
         return _crop._crop.renderimage(image)
+
+    def cropcircle(self, image: str) -> Image:
+        '''crops image in circle'''
+        return _cropcircle._cropcircle.renderimage(image)
 
     def resize(self, image: str, width: int = None, height: int = None) -> Image:
         '''resize image according to given width and height'''
