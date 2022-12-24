@@ -12,7 +12,7 @@ class _caption2:
     FONT_HEIGHT = FONT_SIZE_RATIO * 100 * 4
 
     @classmethod
-    def renderimage(cls, image: str, text: str = 'text here') -> Image:
+    def renderimage(cls, image: str, text: str = 'text here') -> Image.Image:
         if len(text) == 0:
             text = 'text here'
 
@@ -26,7 +26,7 @@ class _caption2:
         return im
 
     @classmethod
-    def get_Y_dist(cls, text: str) -> int:
+    def get_Y_dist(cls, text: str) -> float:
         '''get Y distance according to font height and number of lines'''
         _len = 10
         _temp_length = 0

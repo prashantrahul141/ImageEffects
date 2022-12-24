@@ -10,7 +10,7 @@ class _deepfry:
     BLUE_BAND_INCREASE_RATIO = 0.8
 
     @classmethod
-    def renderimage(cls, image: str) -> Image:
+    def renderimage(cls, image: str) -> Image.Image:
         im = Image.open(image)
 
         # lowering resolution

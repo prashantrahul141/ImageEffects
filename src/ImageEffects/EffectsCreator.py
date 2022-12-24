@@ -1,6 +1,6 @@
 from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle, _pixelate, _saturate
 from .effects import _deepfry
-from PIL import Image
+from PIL.Image import Image
 
 
 class EffectsCreator:
@@ -35,7 +35,7 @@ class EffectsCreator:
         '''crops image in circle'''
         return _cropcircle._cropcircle.renderimage(image)
 
-    def resize(self, image: str, width: int = None, height: int = None) -> Image:
+    def resize(self, image: str, width: int = 0, height: int = 0) -> Image:
         '''resize image according to given width and height'''
         return _resize._resize.renderimage(image, width, height)
 

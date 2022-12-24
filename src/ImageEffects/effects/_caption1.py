@@ -11,7 +11,7 @@ class _caption1:
     LINE_LENGTH = int(FONT_SIZE_RATIO * 100)
 
     @classmethod
-    def renderimage(cls, image: str, text: str = 'text here') -> Image:
+    def renderimage(cls, image: str, text: str = 'text here') -> Image.Image:
         if len(text) == 0:
             text = 'text here'
 

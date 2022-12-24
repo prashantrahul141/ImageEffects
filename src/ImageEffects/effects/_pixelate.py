@@ -7,7 +7,7 @@ class _pixelate:
     PIXELATE_SIZES = [8, 16, 32, 64, 128, 256, 512]
 
     @classmethod
-    def renderimage(cls, image: str, scale: int = 0) -> Image:
+    def renderimage(cls, image: str, scale: int = 0) -> Image.Image:
         im = Image.open(image)
         imSmall = im.resize(cls.getPixelateSize(scale), resample=Image.Resampling.BILINEAR)
         im = imSmall.resize(im.size, Image.Resampling.NEAREST)
