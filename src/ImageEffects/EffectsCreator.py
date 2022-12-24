@@ -1,4 +1,4 @@
-from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle
+from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle, _pixelate
 from PIL import Image
 
 
@@ -37,3 +37,7 @@ class EffectsCreator:
     def resize(self, image: str, width: int = None, height: int = None) -> Image:
         '''resize image according to given width and height'''
         return _resize._resize.renderimage(image, width, height)
+
+    def pixelate(self, image: str, scale: int = 0) -> Image:
+        '''adds pixelate effect'''
+        return _pixelate._pixelate.renderimage(image, scale)
