@@ -1,5 +1,5 @@
 from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle, _pixelate, _saturate
-from .effects import _deepfry, _flip
+from .effects import _deepfry, _flip, _mirror
 from PIL.Image import Image
 
 
@@ -58,3 +58,9 @@ class EffectsCreator:
     def flip(self, image: str) -> Image:
         '''flips image vertically'''
         return _flip._flip.renderimage(image)
+
+    def mirror(self, image: str) -> Image:
+        '''mirrors' the image'''
+        return _mirror._mirror.renderimage(image)
+        
+    
