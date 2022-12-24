@@ -1,5 +1,5 @@
 from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle, _pixelate, _saturate
-from .effects import _deepfry, _flip, _mirror
+from .effects import _deepfry, _flip, _mirror, _invert
 from PIL.Image import Image
 
 
@@ -62,5 +62,7 @@ class EffectsCreator:
     def mirror(self, image: str) -> Image:
         '''mirrors' the image'''
         return _mirror._mirror.renderimage(image)
-        
-    
+
+    def invert(self, image: str) -> Image:
+        '''inverts the colors of an image'''
+        return _invert._invert.renderimage(image)
