@@ -1,5 +1,5 @@
 from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle, _pixelate, _saturate
-from .effects import _deepfry
+from .effects import _deepfry, _flip
 from PIL.Image import Image
 
 
@@ -54,3 +54,7 @@ class EffectsCreator:
     def grayscale(self, image: str) -> Image:
         '''grayscales and image'''
         return self.saturate(image, 0)
+
+    def flip(self, image: str) -> Image:
+        '''flips image vertically'''
+        return _flip._flip.renderimage(image)
