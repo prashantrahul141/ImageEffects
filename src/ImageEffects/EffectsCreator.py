@@ -1,5 +1,5 @@
 from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle, _pixelate, _saturate
-from .effects import _deepfry, _flip, _mirror, _invert
+from .effects import _deepfry, _flip, _mirror, _invert, _emojioverlay
 from PIL.Image import Image
 
 
@@ -67,6 +67,6 @@ class EffectsCreator:
         '''inverts the colors of an image'''
         return _invert._invert.renderimage(image)
 
-    def emojioverlay(self, image: str, emoji: str) -> None:
+    def emojioverlay(self, image: str, emoji: str) -> Image:
         '''Overlays an image with an emoji'''
-        pass
+        return _emojioverlay._emojioverlay.renderimage(image, emoji)
