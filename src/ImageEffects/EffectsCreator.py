@@ -50,3 +50,7 @@ class EffectsCreator:
     def deepfry(self, image: str) -> Image:
         '''makes deepfry meme from image'''
         return _deepfry._deepfry.renderimage(image)
+
+    def grayscale(self, image: str) -> Image:
+        '''grayscales and image'''
+        return self.saturate(image, 0)
