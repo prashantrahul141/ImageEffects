@@ -62,6 +62,7 @@ pixelate:
 ## Index
 
 - [Installation](#installation)
+- [What's Next](#whats-next)
 
 ##### Functions
 
@@ -245,3 +246,7 @@ inverts the colors of an image.
 ```py
 invert(image: str) -> Image
 ```
+
+## What's Next?
+
+I am planing to add a lot more effects to the library, and feel free to contribute to the project with new effects or improvements.
