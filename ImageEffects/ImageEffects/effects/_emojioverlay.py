@@ -2,6 +2,8 @@
 from PIL import Image
 import os
 from ImageEffects.constants import EMOJIS_DIR
+from importlib import resources
+import io
 
 
 class _emojioverlay:
@@ -13,10 +15,16 @@ class _emojioverlay:
     def renderimage(cls, image: str, emoji: str = '') -> Image.Image:
         im = Image.open(image)
         im = im.convert('RGBA')
+        try:
+            with resources.open_binary('resources.emojis', cls.getEmojiName(emoji)) as fp:
+                _img = fp.read()
+        except:
+            raise Exception(f"Emoji {emoji}' could not be found in the library. See available emojis: https://openmoji.org/")
 
-        emoji_im = Image.open(cls.getEmojiPath(emoji))
+        _emoji_file = io.BytesIO(_img)
+        emoji_im = Image.open(_emoji_file)
         emoji_im = emoji_im.crop((cls.EMOJI_PADDING_VALUE, cls.EMOJI_PADDING_VALUE, emoji_im.width -
-                                 cls.EMOJI_PADDING_VALUE, emoji_im.height - cls.EMOJI_PADDING_VALUE))
+                                  cls.EMOJI_PADDING_VALUE, emoji_im.height - cls.EMOJI_PADDING_VALUE))
         emoji_im = emoji_im.resize((im.width, im.height))
         emoji_im = emoji_im.convert('RGBA')
         emoji_im.putalpha(cls.EMOJI_ALPHA_VALUE)
