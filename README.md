@@ -31,32 +31,32 @@ EC.pixelate('input.png', 2).save('result_five.jpg')
 
 input file:
 
-<img width="200px" src='/resources/meta/test_image.jpg' alt="input">
+<img width="200px" src='ImageEffects/resources/meta/test_image.jpg' alt="input">
 <br>
 
 emojioverlay:
 
-<img width="200px" src='/resources/meta/result_one.png' alt="emojioverlay">
+<img width="200px" src='ImageEffects/resources/meta/result_one.png' alt="emojioverlay">
 <br>
 
 caption1:
 
-<img width="200px" src='/resources/meta/result_two.jpg' alt="caption1">
+<img width="200px" src='ImageEffects/resources/meta/result_two.jpg' alt="caption1">
 <br>
 
 caption2:
 
-<img width="200px" src='/resources/meta/result_three.jpg' alt="caption2">
+<img width="200px" src='ImageEffects/resources/meta/result_three.jpg' alt="caption2">
 <br>
 
 deepfry:
 
-<img width="200px" src='/resources/meta/result_four.jpg' alt="deepfry">
+<img width="200px" src='ImageEffects/resources/meta/result_four.jpg' alt="deepfry">
 <br>
 
 pixelate:
 
-<img width="200px" src='/resources/meta/result_five.jpg' alt="pixelate">
+<img width="200px" src='ImageEffects/resources/meta/result_five.jpg' alt="pixelate">
 <br>
 
 ## Index
