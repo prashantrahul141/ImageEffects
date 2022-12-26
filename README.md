@@ -87,28 +87,10 @@ pixelate:
 
 ### Installation
 
-1. clone the repo
+Install using pip.
 
 ```sh
-git clone https://github.com/prashantrahul141/ImageEffects
-```
-
-2. cd into the repository folder
-
-```sh
-cd ImageEffects
-```
-
-3. Install required packages
-
-```sh
-pip install -r requirements.txt
-```
-
-4. Install the package
-
-```sh
-pip install .
+pip install ImageEffects
 ```
 
 ## Functions
