@@ -8,11 +8,10 @@ import io
 
 class _emojioverlay:
     '''Static class'''
-    EMOJI_ALPHA_VALUE = 100
     EMOJI_PADDING_VALUE = 5
 
     @classmethod
-    def renderimage(cls, image: str, emoji: str = '') -> Image.Image:
+    def renderimage(cls, image: str, emoji: str = '', alpha: int = 100) -> Image.Image:
         im = Image.open(image)
         im = im.convert('RGBA')
         try:
@@ -27,7 +26,7 @@ class _emojioverlay:
                                   cls.EMOJI_PADDING_VALUE, emoji_im.height - cls.EMOJI_PADDING_VALUE))
         emoji_im = emoji_im.resize((im.width, im.height))
         emoji_im = emoji_im.convert('RGBA')
-        emoji_im.putalpha(cls.EMOJI_ALPHA_VALUE)
+        emoji_im.putalpha(alpha)
 
         im = Image.alpha_composite(im, emoji_im)
         return im
