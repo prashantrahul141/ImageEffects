@@ -1,7 +1,5 @@
 # imports
-import os
 from PIL import Image, ImageDraw, ImageFont
-from ImageEffects.constants import FONTS_DIR
 from importlib import resources
 import io
 
@@ -12,16 +10,17 @@ class _caption2:
     FONT_SIZE_RATIO = 10/100  # 10%
     LINE_LENGTH = int(FONT_SIZE_RATIO * 100)
     FONT_HEIGHT = FONT_SIZE_RATIO * 100 * 4
-    with resources.open_binary('resources.fonts', 'impact.ttf') as fp:
-        _font_file = io.BytesIO(fp.read())
 
     @classmethod
     def renderimage(cls, image: str, text: str = 'text here') -> Image.Image:
         if len(text) == 0:
             text = 'text here'
 
+        with resources.open_binary('resources.fonts', 'impact.ttf') as fp:
+            _font_file = io.BytesIO(fp.read())
+
         im = Image.open(image)
-        IMPACT_FONT = ImageFont.truetype(cls._font_file, int(cls.FONT_SIZE_RATIO * im.width))
+        IMPACT_FONT = ImageFont.truetype(_font_file, int(cls.FONT_SIZE_RATIO * im.width))
         editable_im = ImageDraw.Draw(im)
         X_DISTANCE = im.width - (85/100 * im.width)
         Y_DISTANCE = cls.get_Y_dist(text)
