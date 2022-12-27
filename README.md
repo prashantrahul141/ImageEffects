@@ -100,7 +100,7 @@ pip install ImageEffects
 Overlays an image with an emoji.
 
 ```py
-emojioverlay(image: str, emoji: str) -> Image
+emojioverlay(image: str, emoji: str, alpha: int = 100) -> Image
 ```
 
 ### deepfry
