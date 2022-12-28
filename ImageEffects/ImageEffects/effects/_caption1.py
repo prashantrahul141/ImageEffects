@@ -8,7 +8,7 @@ class _caption1:
     '''Static class'''
     TEXT_COLOR = (255, 255, 255)
     FONT_SIZE_RATIO = 10/100  # 10%
-    LINE_LENGTH = int(FONT_SIZE_RATIO * 100)
+    LINE_LENGTH = int(FONT_SIZE_RATIO * 100 * 1.5)
 
     @classmethod
     def renderimage(cls, image: str, text: str = 'text here') -> Image.Image:
@@ -31,24 +31,25 @@ class _caption1:
         '''takes the input string and formats if its longer than the threshold length'''
         if len(text) > cls.LINE_LENGTH:
 
-            _text = ''
+            _text_list = []
             _temp_length = 0
-            _temp_str = ''
-            _last_index = 0
+            _temp_list = []
 
-            for _index, _each_string in enumerate(text.split(' ')):
-                _temp_length += len(_each_string)
-                _temp_str += ' ' + _each_string
-                _last_index = _index
+            _word_list = text.split(' ')
+
+            for _each_word in _word_list:
+                _temp_length += len(_each_word)
+                _temp_list.append(_each_word)
 
                 if _temp_length > cls.LINE_LENGTH:
-                    _text += _temp_str + '\n'
-                    _temp_str = ''
+                    _text_list.append(" ".join(_temp_list))
+                    _temp_list = []
                     _temp_length = 0
 
-            # adding left over strings
-            for _each_string in text.split(' ')[_last_index - 1:]:
-                _text += ' ' + _each_string
+            if len(_temp_list) > 0:
+                _text_list.append(' '.join(_temp_list))
+
+            _text = '\n'.join(_text_list)
 
             return _text
 
