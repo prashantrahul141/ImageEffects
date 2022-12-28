@@ -1,1 +1,1 @@
-from .EffectsCreator import EffectsCreator
+from .EffectsCreator import EffectsCreator  # noqa
