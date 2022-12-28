@@ -27,22 +27,9 @@ class _caption2:
         FONT = ImageFont.truetype(_font_file, int(cls.FONT_SIZE_RATIO * im.width))
         _, _, _w, _h = editable_im.textbbox((0, 0), text, font=FONT)
 
-        editable_im.text(((im.width - _w)/2, cls.get_Y_dist(text)), text, font=FONT, fill='white')
+        editable_im.text(((im.width - _w)/2, im.height - _h - 5), text, font=FONT, fill='white')
 
         return im
-
-    @classmethod
-    def get_Y_dist(cls, text: str) -> float:
-        '''get Y distance according to font height and number of lines'''
-        _len = 10
-        _temp_length = 0
-        for i in text.split(' '):
-            _temp_length += len(i)
-            if _temp_length > cls.LINE_LENGTH:
-                _temp_length = 0
-                _len -= 1
-
-        return _len * cls.FONT_HEIGHT
 
     @classmethod
     def format_text(cls, text: str) -> str:
