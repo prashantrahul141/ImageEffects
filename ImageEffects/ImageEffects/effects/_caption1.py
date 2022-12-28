@@ -7,22 +7,25 @@ import io
 class _caption1:
     '''Static class'''
     TEXT_COLOR = (255, 255, 255)
-    FONT_SIZE_RATIO = 10/100  # 10%
-    LINE_LENGTH = int(FONT_SIZE_RATIO * 100 * 1.5)
+    FONT_SIZE_RATIO = 7/100  # 7%
+    LINE_LENGTH = int(FONT_SIZE_RATIO * 100 * 3)
 
     @classmethod
     def renderimage(cls, image: str, text: str = 'text here') -> Image.Image:
         if len(text) == 0:
             text = 'text here'
+        text = cls.format_text(text)
 
         with resources.open_binary('resources.fonts', 'impact.ttf') as fp:
             _font_file = io.BytesIO(fp.read())
 
         im = Image.open(image)
-        IMPACT_FONT = ImageFont.truetype(_font_file, int(cls.FONT_SIZE_RATIO * im.width))
         editable_im = ImageDraw.Draw(im)
-        X_DISTANCE = im.width - (85/100 * im.width)
-        editable_im.text((X_DISTANCE, 5), cls.format_text(text), cls.TEXT_COLOR, font=IMPACT_FONT)
+
+        FONT = ImageFont.truetype(_font_file, int(cls.FONT_SIZE_RATIO * im.width))
+        _, _, _w, _h = editable_im.textbbox((0, 0), text, font=FONT)
+
+        editable_im.text(((im.width - _w)/2, 0), text, font=FONT, fill='white')
 
         return im
 
