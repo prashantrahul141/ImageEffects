@@ -11,9 +11,13 @@ def test_caption_formatter():
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eleifend, odio nec finibus interdum, dui mi convallis dui, sed aliquet"
     ]
 
-    OUTPUT = [
-        "Lorem"
-
+    OUTPUTS = [
+        "Lorem",
+        "Lorem Ipsum",
+        "Lorem ipsum dolor",
+        "Lorem ipsum dolor sit\namet, consectetur\nadipiscing",
+        "Lorem ipsum dolor sit\namet, consectetur\nadipiscing elit. Sed\neleifend, odio nec\nfinibus interdum,\ndui mi convallis dui,\nsed aliquet"
     ]
 
-    assert _caption1.format_text(INPUTS[0]) == OUTPUT[0]
+    for _index, i in enumerate(OUTPUTS):
+        assert _caption1.format_text(INPUTS[_index]) == OUTPUTS[_index]
