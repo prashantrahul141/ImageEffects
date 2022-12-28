@@ -17,7 +17,7 @@ class _emojioverlay:
         try:
             with resources.open_binary('resources.emojis', cls.getEmojiName(emoji)) as fp:
                 _img = fp.read()
-        except:
+        except Exception:
             raise Exception(f"Emoji {emoji}' could not be found in the library. See available emojis: https://openmoji.org/")
 
         _emoji_file = io.BytesIO(_img)

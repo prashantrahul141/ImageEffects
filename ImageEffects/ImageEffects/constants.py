@@ -1,5 +1,4 @@
 import os
-from PIL import ImageFont
 
 # paths
 CONST_FILE_DIR = os.path.abspath(__file__)
