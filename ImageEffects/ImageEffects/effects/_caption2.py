@@ -13,7 +13,7 @@ class _caption2:
     FONT_HEIGHT = FONT_SIZE_RATIO * 100 * 6
 
     @classmethod
-    def renderimage(cls, image: str, text: str = 'text here') -> Image.Image:
+    def renderimage(cls, image: str, text: str = 'text here', _font_size_ratio_mul: float = 1.0) -> Image.Image:
         if len(text) == 0:
             text = 'text here'
 
@@ -25,7 +25,7 @@ class _caption2:
         im = Image.open(image)
         editable_im = ImageDraw.Draw(im)
 
-        FONT = ImageFont.truetype(_font_file, int(cls.FONT_SIZE_RATIO * im.width))
+        FONT = ImageFont.truetype(_font_file, int(cls.FONT_SIZE_RATIO * _font_size_ratio_mul * im.width))
         _, _, _w, _h = editable_im.textbbox((0, 0), text, font=FONT)
 
         editable_im.text(((im.width - _w)/2, im.height - _h - 5), text, font=FONT, fill='white')
