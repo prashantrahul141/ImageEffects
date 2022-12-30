@@ -1,5 +1,5 @@
 from .effects import _blur, _rotate, _ascify, _caption1, _caption2, _crop, _resize, _cropcircle, _pixelate, _saturate
-from .effects import _deepfry, _flip, _mirror, _invert, _emojioverlay
+from .effects import _deepfry, _flip, _mirror, _invert, _emojioverlay, _triggered
 from PIL.Image import Image
 
 
@@ -70,3 +70,7 @@ class EffectsCreator:
     def emojioverlay(self, image: str, emoji: str, alpha: int = 100) -> Image:
         '''Overlays an image with an emoji'''
         return _emojioverlay._emojioverlay.renderimage(image, emoji, alpha)
+
+    def triggered(self, image: str) -> Image:
+        '''makes triggered meme.'''
+        return _triggered._triggered.renderimage(image)
