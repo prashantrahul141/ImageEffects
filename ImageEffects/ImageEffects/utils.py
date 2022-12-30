@@ -4,7 +4,7 @@ def map_(value: int, input_start: int, input_stop: int, output_start: int, outpu
     return output_start + (output_stop - output_start) * ((value - input_start) / (output_stop - input_start))
 
 
-def format_text(_line_length: int, text: str) -> str:
+def format_text(_line_length: int = 21, text: str = 'text here') -> str:
     '''takes the input string and formats if its longer than the threshold length'''
     if len(text) > _line_length:
 
