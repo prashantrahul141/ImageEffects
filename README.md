@@ -71,6 +71,7 @@ pixelate:
 - [caption1](#caption1)
 - [caption2](#caption2)
 - [pixelate](#pixelate)
+- [triggered](#triggered)
 - [cropcircle](#cropcirlce)
 - [blur](#blur)
 - [rotate](#rotate)
@@ -134,6 +135,14 @@ adds pixelate effect.
 
 ```py
 pixelate(image: str, scale: int = 0) -> Image
+```
+
+### triggered
+
+makes triggered meme.
+
+```py
+triggered(self, image: str) -> Image
 ```
 
 ### cropcirlce
