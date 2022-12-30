@@ -1,4 +1,4 @@
-from ImageEffects.effects._caption1 import _caption1
+from ImageEffects.utils import format_text
 
 
 def test_caption_formatter():
@@ -15,9 +15,9 @@ def test_caption_formatter():
         "Lorem",
         "Lorem Ipsum",
         "Lorem ipsum dolor",
-        "Lorem ipsum dolor sit\namet, consectetur\nadipiscing",
-        "Lorem ipsum dolor sit\namet, consectetur\nadipiscing elit. Sed\neleifend, odio nec\nfinibus interdum,\ndui mi convallis dui,\nsed aliquet"
+        "Lorem ipsum dolor sit amet,\nconsectetur adipiscing",
+        "Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit.\nSed eleifend, odio nec finibus\ninterdum, dui mi convallis\ndui, sed aliquet"
     ]
 
     for _index, i in enumerate(OUTPUTS):
-        assert _caption1.format_text(INPUTS[_index]) == OUTPUTS[_index]
+        assert format_text(21, text=INPUTS[_index]) == OUTPUTS[_index]
