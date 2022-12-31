@@ -117,7 +117,7 @@ deepfry(image: str) -> Image
 adds given text to the image on the top side.
 
 ```py
-caption1(image: str, text: str = 'text here', _font_size_ratio_mul: float = 1.0) -> Image
+caption1(image: str, text: str = 'text here', _font_size_ratio_mul: float = 1.0, _border: bool = False) -> Image
 ```
 
 ### caption2
@@ -125,7 +125,7 @@ caption1(image: str, text: str = 'text here', _font_size_ratio_mul: float = 1.0)
 adds given text to the image on the bottom side.
 
 ```py
-caption2(image: str, text: str = 'text here', _font_size_ratio_mul: float = 1.0) -> Image
+caption2(image: str, text: str = 'text here', _font_size_ratio_mul: float = 1.0, _border: bool = False) -> Image
 ```
 
 ### pixelate
