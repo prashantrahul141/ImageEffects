@@ -28,10 +28,10 @@ class _caption2:
             FONT = ImageFont.truetype(_font_file, int(cls.FONT_SIZE_RATIO * _font_size_ratio_mul * im.width))
             _, _, _w, _h = editable_im.textbbox((0, 0), text, font=FONT)
 
-            editable_im.text(((im.width - _w)/2 + 1, 0), text, font=FONT, fill='black')
-            editable_im.text(((im.width - _w)/2 - 1, 0), text, font=FONT, fill='black')
-            editable_im.text(((im.width - _w)/2, 1), text, font=FONT, fill='black')
-            editable_im.text(((im.width - _w)/2, -1), text, font=FONT, fill='black')
+            editable_im.text(((im.width - _w)/2 + 1, im.height - _h - 5), text, font=FONT, fill='black')
+            editable_im.text(((im.width - _w)/2 - 1, im.height - _h - 5), text, font=FONT, fill='black')
+            editable_im.text(((im.width - _w)/2, (im.height - _h - 5) + 1), text, font=FONT, fill='black')
+            editable_im.text(((im.width - _w)/2, (im.height - _h - 5) - 1), text, font=FONT, fill='black')
 
         with resources.open_binary('resources.fonts', 'impact.ttf') as fp:
             _font_file = io.BytesIO(fp.read())
