@@ -19,13 +19,13 @@ class EffectsCreator:
         '''makes ascii art from given text'''
         return _ascify._ascify.renderimage(text)
 
-    def caption1(self, image: str, text: str = 'text here', _font_size_ratio_mul: float = 1.0) -> Image:
+    def caption1(self, image: str, text: str = 'text here', _font_size_ratio_mul: float = 1.0, _border: bool = False) -> Image:
         '''adds given text to the image on the top side'''
-        return _caption1._caption1.renderimage(image, text, _font_size_ratio_mul)
+        return _caption1._caption1.renderimage(image, text, _font_size_ratio_mul, _border)
 
-    def caption2(self, image: str, text: str = 'text here', _font_size_ratio_mul: float = 1.0) -> Image:
+    def caption2(self, image: str, text: str = 'text here', _font_size_ratio_mul: float = 1.0, _border: bool = False) -> Image:
         '''adds given text to the image on the bottom side'''
-        return _caption2._caption2.renderimage(image, text, _font_size_ratio_mul)
+        return _caption2._caption2.renderimage(image, text, _font_size_ratio_mul, _border)
 
     def crop(self, image: str) -> Image:
         '''crops image automactically in 1:1 ratio'''
